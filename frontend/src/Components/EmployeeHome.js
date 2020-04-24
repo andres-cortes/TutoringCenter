@@ -39,6 +39,20 @@ export default function EmpHome() {
           Employee Home
         </Typography>
         <div className={classes.linkGroup}>
+          <Link className={classes.link} to="/StudentCheckIn">
+            {" "}
+            <Typography align="left">
+              Student Check-in
+            </Typography>{" "}
+          </Link>
+          <Link className={classes.link} to="/TutorCheckIn">
+            {" "}
+            <Typography align="left">
+              Tutor Check-in
+            </Typography>{" "}
+          </Link>
+        </div>
+        <div className={classes.linkGroup}>
           <Link className={classes.link} to="/RegisterStudent">
             {" "}
             <Typography align="left">

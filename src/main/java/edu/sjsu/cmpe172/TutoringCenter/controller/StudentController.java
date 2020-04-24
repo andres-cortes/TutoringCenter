@@ -48,4 +48,18 @@ public class StudentController {
 		studentService.save(student);
 		return student;
 	}
+	
+	@PutMapping("/student/{id}")
+	public Student update(@PathVariable int id, @RequestBody Student student) {
+		Student s = studentService.get(id);
+		
+		if (student.getLastname().length() != 0){
+			s.setLastname(student.getLastname());
+			}
+		if (student.getFirstname().length() != 0){
+			s.setFirstname(student.getFirstname());
+			}
+		studentService.save(s);
+		return s;
+	}
 }

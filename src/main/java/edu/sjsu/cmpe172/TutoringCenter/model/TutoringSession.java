@@ -61,7 +61,7 @@ public class TutoringSession {
 	@Override
 	public String toString() {
 		//return "Session [id= " + id + ", student= " + student.getFirstname() + ", tutor= " + tutor.getFirstname() + ", arrived= " + student_arrive +"]";
-		return "Session [id= " + id + ", subject= " + subject + "]";
+		return "Session [id= " + id + ", subject= " + subject + ", check_in = "+check_in+"]";
 	}
 
 	public Integer getStudent_id() {

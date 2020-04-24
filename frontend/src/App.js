@@ -5,6 +5,8 @@ import RegisterTutor from "./Components/RegisterTutor";
 import ViewStudents from "./Components/ViewStudents";
 import ViewTutors from "./Components/ViewTutors";
 import { Route, BrowserRouter as Router } from "react-router-dom";
+import StudentCheckIn from "./Components/StudentCheckIn";
+import TutorCheckIn from "./Components/TutorCheckIn";
 
 class App extends Component {
   render() {
@@ -15,6 +17,8 @@ class App extends Component {
         <Route exact path="/RegisterTutor" component={RegisterTutor} />
         <Route exact path="/ViewStudents" component={ViewStudents} />
         <Route exact path="/ViewTutors" component={ViewTutors} />
+        <Route exact path="/StudentCheckIn" component={StudentCheckIn} />
+        <Route exact path="/TutorCheckIn" component={TutorCheckIn} />
       </Router>
     );
   }
