@@ -45,10 +45,37 @@ public class TutoringSessionController {
 		return "TutoringSession removed with id " + id;
 	}
 	
-	@PutMapping("/session")
+	@PutMapping("/session/")
 	public TutoringSession update(@RequestBody TutoringSession tutoringSession) {
 		
 		tutoringSessionService.save(tutoringSession);
 		return tutoringSession;
+	}
+	@PutMapping("/session/{id}")
+	public TutoringSession update(@PathVariable int id, @RequestBody TutoringSession tutoringSession) {
+		TutoringSession ts = tutoringSessionService.get(id);
+		//change tutor ID
+		if (tutoringSession.getTutor_id() != null){
+			ts.setTutor_id(tutoringSession.getTutor_id());
+			}
+		//change student ID
+		if (tutoringSession.getStudent_id() != null){
+			ts.setStudent_id(tutoringSession.getStudent_id());
+			}
+		//change check in and out times
+		if (tutoringSession.getCheck_in() != null){
+			ts.setCheck_in(tutoringSession.getCheck_in());
+			}
+		if (tutoringSession.getCheck_out() != null){
+			ts.setCheck_out(tutoringSession.getCheck_out());
+			}
+		//change subject
+		if (tutoringSession.getSubject() != null){
+			ts.setSubject(tutoringSession.getSubject());
+			}
+		//not changing id or student arrival
+
+		tutoringSessionService.save(ts);
+		return ts;
 	}
 }
