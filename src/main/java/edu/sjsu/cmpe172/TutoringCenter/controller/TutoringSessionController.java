@@ -54,6 +54,7 @@ public class TutoringSessionController {
 	@PutMapping("/session/{id}")
 	public TutoringSession update(@PathVariable int id, @RequestBody TutoringSession tutoringSession) {
 		TutoringSession ts = tutoringSessionService.get(id);
+		//System.out.println("Tutoring "+tutoringSession.toString());
 		//change tutor ID
 		if (tutoringSession.getTutor_id() != null){
 			ts.setTutor_id(tutoringSession.getTutor_id());
@@ -67,6 +68,7 @@ public class TutoringSessionController {
 			ts.setCheck_in(tutoringSession.getCheck_in());
 			}
 		if (tutoringSession.getCheck_out() != null){
+			//System.out.println(tutoringSession.getCheck_out().toString());
 			ts.setCheck_out(tutoringSession.getCheck_out());
 			}
 		//change subject
@@ -77,7 +79,7 @@ public class TutoringSessionController {
 		
 		//for some bullshit reason we need to call the toString method to make it save the time in the database
 		//this is some grade A bullshit
-		System.out.println(ts.toString());
+		//System.out.println("T "+ts.toString());
 		tutoringSessionService.save(ts);
 		return ts;
 	}
