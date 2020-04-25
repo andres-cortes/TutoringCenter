@@ -90,6 +90,9 @@ export default function StudentCheckIn() {
           if (body[key]['check_in'] != null){
               delete body[key];
           }
+          else{
+            body[key]['student_arrive'] = new Date(Date.parse(body[key]['student_arrive'])).toLocaleTimeString();
+          }
       }
       for (var key in body)
       {
@@ -185,6 +188,7 @@ export default function StudentCheckIn() {
                 <TableCell align="center">Session ID</TableCell>
                 <TableCell align="center">Student ID</TableCell>
                 <TableCell align="center">Subject</TableCell>
+                <TableCell align="center">Arrival Time</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -193,6 +197,7 @@ export default function StudentCheckIn() {
                   <TableCell align="center">{row.id}</TableCell>
                   <TableCell align="center">{row.student_id}</TableCell>
                   <TableCell align="center">{row.subject}</TableCell>
+                  <TableCell align="center">{row.student_arrive}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

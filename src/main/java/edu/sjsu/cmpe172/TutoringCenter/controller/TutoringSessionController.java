@@ -74,7 +74,10 @@ public class TutoringSessionController {
 			ts.setSubject(tutoringSession.getSubject());
 			}
 		//not changing id or student arrival
-
+		
+		//for some bullshit reason we need to call the toString method to make it save the time in the database
+		//this is some grade A bullshit
+		System.out.println(ts.toString());
 		tutoringSessionService.save(ts);
 		return ts;
 	}
