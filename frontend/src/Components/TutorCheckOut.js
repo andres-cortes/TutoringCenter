@@ -43,25 +43,24 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function TutorCheckIn() {
+export default function TutorCheckOut() {
   const classes = useStyles();
 
-  const [tutor_id, setTutor] = React.useState("");
   const [id, setID] = React.useState("");
-  const [check_in, setTime] = React.useState("");
+  const [check_out, setTime] = React.useState("");
  
   const [data, upDateData] = React.useState([]);
   const [firstLoad, setLoad] = React.useState(true);
   let isLoading = true;
 
-  const handleTutorChange = event => setTutor(event.target.value);
+  //const handleTutorChange = event => setTutor(event.target.value);
   const handleIDChange = event => setID(event.target.value);
   const handleTimeChange = event => setTime(event.target.value);
 
   const [message, setMessage] = React.useState("Nothing saved in the session");
 
   async function postSession(id, toInput) {
-    const response = await fetch("/api/session/"+id, {
+    const response = await fetch("/api/session/"+String(id), {
       method: "PUT", // GET, POST, *PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
       cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -76,7 +75,6 @@ export default function TutorCheckIn() {
     });
 
     let body = await response.json();
-    console.log(body.id);
     setMessage(body.id ? "Data sucessfully updated" : "Data updation failed");
   }
   
@@ -87,7 +85,7 @@ export default function TutorCheckIn() {
       let body = await response.json();
       //remove the students who have already been seen by a tutor
       for (var key in body){
-          if (body[key]['check_in'] != null){
+          if (body[key]['check_in'] == null || body[key]['check_out'] != null){
               delete body[key];
           }
           else{
@@ -102,16 +100,14 @@ export default function TutorCheckIn() {
     }
 
   const handleSubmit = variables => {
-    if(tutor_id !== "" && id !== ""){
-
-      let d = new Date(Date.now())
-      console.log(d)
-      setTime(Date.now())
-
-      const toInput = {tutor_id, 'check_in':Date.now().toString()};
-      postSession(id, toInput);
-      setTutor("");
-      setID("");
+    if(id !== ""){
+        let v = Date.now().toString();
+        setTime(v);
+        console.log(v);
+        const toInput = {'check_out': Date.now().toString()};
+        console.log(toInput)
+        postSession(id, toInput);
+        setID("");
     }
     else {
       setMessage("Please enter first and last name")
@@ -133,7 +129,7 @@ export default function TutorCheckIn() {
           <GroupIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Tutor Check-in
+          Tutor Check-out
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
@@ -148,19 +144,6 @@ export default function TutorCheckIn() {
                 value={id}
                 label="Session ID"
                 onChange={handleIDChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-            <TextField
-                name="Tutor ID"
-                autoComplete="Tutor ID"
-                variant="outlined"
-                required
-                fullWidth
-                id="Tutor ID"
-                value={tutor_id}
-                label="Tutor ID"
-                onChange={handleTutorChange}
               />
             </Grid>
           </Grid>
