@@ -139,12 +139,6 @@ export default function StudentCheckIn() {
         <Typography style={{ margin: 7 }} variant="body1">
           Status: {message}
         </Typography>
-        <Link className={classes.link} to="/">
-          {" "}
-          <Typography align="left">
-            &#x2190; back
-          </Typography>{" "}
-        </Link>
       </div>
     </Container>
   );
