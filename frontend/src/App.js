@@ -1,26 +1,20 @@
 import React, { Component } from "react";
-import EmployeeHome from "./Components/EmployeeHome";
-import RegisterStudent from "./Components/RegisterStudent";
-import RegisterTutor from "./Components/RegisterTutor";
-import ViewStudents from "./Components/ViewStudents";
-import ViewTutors from "./Components/ViewTutors";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import StudentCheckIn from "./Components/StudentCheckIn";
-import TutorCheckIn from "./Components/TutorCheckIn";
-import TutorCheckOut from "./Components/TutorCheckOut";
+import TutorManagement from "./Components/TutorManagement";
+import StudentManagement from "./Components/StudentManagement";
+import Statistics from "./Components/Statistics"
+import Dashboard from "./Components/Dashboard"
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <Route exact path="/"component={EmployeeHome} />
-        <Route exact path="/RegisterStudent" component={RegisterStudent} />
-        <Route exact path="/RegisterTutor" component={RegisterTutor} />
-        <Route exact path="/ViewStudents" component={ViewStudents} />
-        <Route exact path="/ViewTutors" component={ViewTutors} />
-        <Route exact path="/StudentCheckIn" component={StudentCheckIn} />
-        <Route exact path="/TutorCheckIn" component={TutorCheckIn} />
-        <Route exact path="/TutorCheckOut" component={TutorCheckOut} />
+        <Route exact path="/"component={StudentCheckIn} />
+        <Route exact path="/EmployeeDashboard"component={Dashboard} />
+        <Route exact path="/Tutor" component={TutorManagement} />
+        <Route exact path="/Student" component={StudentManagement} />
+        <Route exact path="/Statistics" component={Statistics} />
       </Router>
     );
   }

@@ -45,7 +45,7 @@ export default function StudentCheckIn() {
   const handleSubjectChange = event => setSubject(event.target.value);
   const handleIDChange = event => setID(event.target.value);
 
-  const [message, setMessage] = React.useState("Nothing saved in the session");
+  const [message, setMessage] = React.useState("");
 
   async function postStudent(toInput) {
     const response = await fetch("/api/session", {
@@ -64,7 +64,7 @@ export default function StudentCheckIn() {
 
     let body = await response.json();
     console.log(body.id);
-    setMessage(body.id ? "Data sucessfully updated" : "Data updation failed");
+    setMessage(body.id ? "A tutor will check you in shortly" : "Data updation failed");
   }
 
   const handleSubmit = variables => {
@@ -139,12 +139,6 @@ export default function StudentCheckIn() {
         <Typography style={{ margin: 7 }} variant="body1">
           Status: {message}
         </Typography>
-        <Link className={classes.link} to="/">
-          {" "}
-          <Typography align="left">
-            &#x2190; back
-          </Typography>{" "}
-        </Link>
       </div>
     </Container>
   );
