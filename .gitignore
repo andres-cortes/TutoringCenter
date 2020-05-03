@@ -61,3 +61,6 @@ local.properties
 # JDT-specific (Eclipse Java Development Tools)     
 .classpath.DS_Store
 .DS_Store
+
+#credentials
+application.properties
