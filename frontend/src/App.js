@@ -5,7 +5,6 @@ import TutorManagement from "./Components/TutorManagement";
 import StudentManagement from "./Components/StudentManagement";
 import Statistics from "./Components/Statistics"
 import Dashboard from "./Components/Dashboard"
-import Stats from "./Components/Stats";
 
 class App extends Component {
   render() {
@@ -16,7 +15,6 @@ class App extends Component {
         <Route exact path="/Tutor" component={TutorManagement} />
         <Route exact path="/Student" component={StudentManagement} />
         <Route exact path="/Statistics" component={Statistics} />
-        <Route exact path="/Stats" component={Stats} />
       </Router>
     );
   }
