@@ -36,7 +36,7 @@ export default function Chart() {
         <LineChart
           data={data}
           margin={{
-            top: 16,
+            top: 15,
             right: 16,
             bottom: 0,
             left: 24,
