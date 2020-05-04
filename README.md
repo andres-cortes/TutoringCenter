@@ -24,6 +24,12 @@ src="RegisterTutor.JPG"
 raw=true
 />
 
+Statistics page
+<img
+src="stats.JPG"
+raw=true
+/>
+
 #### Pre-Requisites
 Java 8 or Higher
 Maven
