@@ -49,9 +49,27 @@ The above will run both the front and backend, you can view the application at l
 3. Right click the project in the Package Explorer on the right and run as a Spring Boot App (Spring Tools 4 must be installed as an Eclipse plugin). The console should log the time to build and the port where the Application is running on. The backend is now running, and we can test it through Postman or the browser directly.
 4. Navigate to /frontend in the command line, Run `npm install` and `npm start`. The frontend will now be running on port 3000, and will communicate with springboot through API calls on port 8080. 
 #### UML Diagrams
+<img
+src="image001.jpg"
+raw=true
+/>
+
+System Diagram
+
+<img
+src="image002.jpg"
+raw=true
+/>
+
+Sequence Diagram
 
 #### Schema
-The schema for the database is available in schema/dbschema.sql
+<img
+src="image003.gif"
+raw=true
+/>
+
+The schema for the database is available in schema/dbschema.sql. We've also provided an Entity Relationship diagram.
 #### Database Queries
 Database Queries are made through JPA. The entity models are available in src/main/java/edu/sjsu/cmpe172/TutoringCenter/model, while the data access objects are available in ''/DAO, the services in ''/service, and the controllers in ''/controller. You can query the database using MySQL through your choice of MySQL client. For this project, we used MySQL Workbench to initially test the database.
 #### Mid Tier API
